@@ -1,0 +1,12 @@
+Possible moves:
+  A - play card on the left.
+  S - play card on the middle.
+  D - play card on the right.
+  T - ask truco (round start with 1 point and goes to 3, 6, 9 and 12).
+You can only ask truco on the round if the last team who called truco was the opposite team (or no one asked)
+T also accepts truco if opponent asked it.
+  Q - gives up round if opponent asked truco.
+
+You need to press a key for the AI to play (any key).
+
+To play, run 'python3 play.py' and specify AI version file when asked.
