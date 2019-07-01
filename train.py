@@ -138,8 +138,8 @@ def main():
     state_dim = 17
     action_dim = 5
     render = False
-    log_interval = 20           # print avg reward in the interval
-    max_episodes = 2500         # max training episodes
+    log_interval = 50           # print avg reward in the interval
+    max_episodes = 1000         # max training episodes
     max_timesteps = 300         # max timesteps in one episode
     n_latent_var = 64           # number of variables in hidden layer
     #update_timestep = 50        # update policy every n timesteps
@@ -149,6 +149,13 @@ def main():
     gamma = 0.99                # discount factor
     K_epochs = 4                # update policy for K epochs
     eps_clip = 0.2              # clip parameter for PPO
+    giveup_counter = 0
+    truco_called_counter = 0
+    truco_called_pe = 0
+    win_first_round = 0
+    best_card = 0
+    middle_card = 0
+    worst_card = 0
     random_seed = None
     #############################################
 
@@ -184,15 +191,39 @@ def main():
                 team = env.team(player)
                 action = models[player].policy_old.act(state, memory[player])
                 action += 1
+                if not env.illegalMove(5):  #counting times a legal give up action was possible(enemy called truco)
+                    truco_called_counter += 1
+                if (action == 5 or action == '5') and not env.illegalMove(action):  # counting times a legal give up action was taken
+                    giveup_counter += 1
+
+                if (action == 4 or action == '4') and env.turn == 3:
+                    truco_called_pe += 1
+
+                if env.turn == 0 and int(action) <= 3:
+                    first_card_played = env.players[env.player].getHand()[int(action)-1]
                 state, reward, episode_done, done = env.step(action)
+                if env.turn == 1 and int(action) <= 3:
+                    other_cards = env.players[env.player].getHand()
+                    if int(other_cards[0][0:1]) < int(first_card_played[0:1]) and int(other_cards[1][0:1]) < int(first_card_played[0:1]):
+                        best_card += 1
+                    elif int(other_cards[0][0:1]) < int(first_card_played[0:1]) or int(other_cards[1][0:1]) < int(first_card_played[0:1]):
+                        middle_card += 1
+                    else:
+                        worst_card +=1
                 if len(state) != 17:
                     print("Error!")
                     raise ValueError
                 # Saving reward:
                 played[player] = True
 
+
+
+
                 team = env.team(player)
                 running_reward[player].append(reward[team])
+
+            if env.first_team_win == team:
+                win_first_round += 1
 
             for i in range(0, 4):
                 if len(running_reward[i]) > 0:
@@ -228,9 +259,14 @@ def main():
             avg_length = int(avg_length/log_interval)
             running_reward_p0 = int((running_reward_p0/log_interval))
 
-            print('Episode {} \t avg length: {} \t reward p0: {}'.format(i_episode, avg_length, running_reward_p0))
+            print('Episode {} \t avg length: {} \t reward p0: {} \t give up percent: {}'.format(i_episode, avg_length, running_reward_p0, (giveup_counter/truco_called_counter)*100))
+            print('Episode {} \t pe truco: {} \t first round wins: {} \t best card plays: {} \t middle card plays: {} \t worst card plays: {}'.format(i_episode,truco_called_pe, win_first_round,best_card,middle_card,worst_card))
+            giveup_counter = 0
+            truco_called_pe = 0
+            truco_called_counter = 0
             running_reward_p0 = 0
             avg_length = 0
+            best_card = worst_card = middle_card = 0
 
     torch.save(models[0].policy.state_dict(), './PPO_{}.pth'.format(env_name))
 

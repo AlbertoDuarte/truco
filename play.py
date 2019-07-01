@@ -64,7 +64,7 @@ eps_clip = 0.2              # clip parameter for PPO
 
 memory = Memory()
 ppo = PPO(state_dim, action_dim, n_latent_var, lr, betas, gamma, K_epochs, eps_clip)
-ppo.policy_old.load_state_dict(torch.load("PPO_Truco-v1.pth")) # Change
+ppo.policy_old.load_state_dict(torch.load("PPO_Truco-v0.pth")) # Change
 episode_done = False
 
 state = env.reset()

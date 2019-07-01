@@ -343,7 +343,7 @@ class TrucoEnv(object):
             return self.player-1
 
     def team(self, player):
-        return self.player%2
+        return self.player % 2
 
     def play(self, action):
         reward = [0, 0]
