@@ -132,13 +132,13 @@ class PPO:
 
 def main():
     ############## Hyperparameters ##############
-    env_name = "Truco-v1"
+    env_name = "Truco-v2"
     # creating environment
     env = truco.setupGame()
     state_dim = 17
     action_dim = 5
     render = False
-    log_interval = 50           # print avg reward in the interval
+    log_interval = 10000           # print avg reward in the interval
     max_episodes = 1000         # max training episodes
     max_timesteps = 300         # max timesteps in one episode
     n_latent_var = 64           # number of variables in hidden layer
@@ -157,6 +157,7 @@ def main():
     middle_card = 0
     worst_card = 0
     random_seed = None
+    save_model = 100000
     #############################################
 
     #if random_seed:
@@ -253,6 +254,9 @@ def main():
                 models[i].update(memory[i])
                 memory[i].clear_memory()
         avg_length += t
+
+        if i_episode % save_model == 0:
+            torch.save(models[0].policy.state_dict(), './PPO_{}_EP{}.pth'.format(env_name, i_episode))
 
         # logging
         if i_episode % log_interval == 0:
