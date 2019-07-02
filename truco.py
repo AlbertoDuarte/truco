@@ -343,7 +343,7 @@ class TrucoEnv(object):
             return self.player-1
 
     def team(self, player):
-        return self.player % 2
+        return player % 2
 
     def play(self, action):
         reward = [0, 0]
@@ -358,7 +358,6 @@ class TrucoEnv(object):
         elif action == "1" or action == "2" or action == "3" or action == 1 or action == 2 or action == 3:
             card = int(action)
 
-            self.debug = self.player
             try:
                 card = self.players[self.player].getHand()[card-1]
             except:
@@ -376,11 +375,15 @@ class TrucoEnv(object):
 
 
             if self.turn >= 3:
-            # Resolve round
+            # Resolve turn
                 highest_card = 0
                 winround = False
                 winplayer = -1
-                player = 0
+                if self.player == 3:
+                    player = 0
+                else:
+                    player = self.player+1
+
                 for card in self.cards:
                     if(card > highest_card):
                         highest_card = card
@@ -388,7 +391,7 @@ class TrucoEnv(object):
                         winplayer = player
                     elif(card == highest_card):
                         winround = False
-                    player += 1
+                    player = (player + 1) % 4
 
                 if winround:
                     team = self.team(winplayer)
@@ -455,6 +458,7 @@ class TrucoEnv(object):
         self.nextRound()
         self.round_num = 0
         self.round_value = 1
+        self.turn = 0
         self.truco = NOONE
         self.lastPlayWasTruco = 0
         self.first_team_win = -1
