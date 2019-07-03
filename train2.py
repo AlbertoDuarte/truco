@@ -132,13 +132,13 @@ class PPO:
 
 def main():
     ############## Hyperparameters ##############
-    env_name = "Truco-v3"
+    env_name = "Truco-vE0"
     # creating environment
     env = truco.setupGame()
     state_dim = 17
     action_dim = 5
     render = False
-    log_interval = 250       # print avg reward in the interval
+    log_interval = 25000       # print avg reward in the interval
     max_episodes = 1000000         # max training episodes
     max_timesteps = 300         # max timesteps in one episode
     n_latent_var = 64           # number of variables in hidden layer
@@ -256,7 +256,7 @@ def main():
                 first_team_win = env.first_team_win
             
 
-            for i in range(0, 4):
+            for i in range(0, 1):
                 if len(running_reward[i]) > 0:
                     team = env.team(i)
                     running_reward[i][-1] = reward[team]
@@ -281,16 +281,23 @@ def main():
                 else:
                     final_reward = [-12, 12, -12, 12]
 
-                for i in range(0, 4):
+                for i in range(0, 1):
                     memory[i].rewards[-1] = final_reward[i]
                 break
+            
+        # Players 1 and 3 receives old model from player 0
+        models[1].policy_old.load_state_dict(models[0].policy_old.state_dict())
+        models[3].policy_old.load_state_dict(models[0].policy_old.state_dict())
 
         # Update models
         if i_episode % update == 0:
-            for i in range(0, 4):
+            for i in range(0, 1):
                 models[i].update(memory[i])
                 memory[i].clear_memory()
         avg_length += t
+        
+        # Player 2 receives player 0 model AFTER the update
+        models[2].policy_old.load_state_dict(models[0].policy_old.state_dict())
 
         if i_episode % save_model == 0:
             torch.save(models[0].policy.state_dict(), './PPO_{}_EP{}.pth'.format(env_name, i_episode))
