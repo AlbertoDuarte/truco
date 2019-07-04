@@ -1,0 +1,164 @@
+pygame 1.9.6
+Hello from the pygame community. https://www.pygame.org/contribute.html
+2e-05 (0.9, 0.999)
+4
+Episode 25000 	 avg length: 4 	 reward p0: -2 	 give up percent: 3.144744814056144
+First turn, first round: best 18722  middle 12699  worst 9642
+legal moves 369571  illegal moves  57635
+truco pe    12069  not truco pe   357502
+win 1 turn  0  not win 1 turn 12717
+truco acc   34661  truco give up  1090
+
+
+Episode 50000 	 avg length: 5 	 reward p0: 0 	 give up percent: 0.18490451652015763
+First turn, first round: best 25032  middle 15075  worst 10625
+legal moves 838169  illegal moves  73297
+truco pe    10539  not truco pe   815561
+win 1 turn  0  not win 1 turn 25351
+truco acc   32990  truco give up  61
+
+
+Episode 75000 	 avg length: 4 	 reward p0: 0 	 give up percent: 0.03350832123310622
+First turn, first round: best 23693  middle 13048  worst 8612
+legal moves 1256735  illegal moves  83050
+truco pe    7516  not truco pe   1226611
+win 1 turn  0  not win 1 turn 38255
+truco acc   35812  truco give up  12
+
+
+Episode 100000 	 avg length: 4 	 reward p0: 0 	 give up percent: 0.011105250006940782
+First turn, first round: best 21034  middle 13177  worst 9072
+legal moves 1651854  illegal moves  91804
+truco pe    8226  not truco pe   1613504
+win 1 turn  0  not win 1 turn 51440
+truco acc   36019  truco give up  4
+
+
+Episode 125000 	 avg length: 3 	 reward p0: 0 	 give up percent: 0.005748447919061854
+First turn, first round: best 19509  middle 12843  worst 8437
+legal moves 2029167  illegal moves  100464
+truco pe    10486  not truco pe   1980331
+win 1 turn  0  not win 1 turn 64591
+truco acc   34792  truco give up  2
+
+
+Episode 150000 	 avg length: 4 	 reward p0: 0 	 give up percent: 0.0
+First turn, first round: best 19802  middle 12536  worst 8916
+legal moves 2414815  illegal moves  106690
+truco pe    13301  not truco pe   2352678
+win 1 turn  0  not win 1 turn 77681
+truco acc   34864  truco give up  0
+
+
+Episode 175000 	 avg length: 3 	 reward p0: 0 	 give up percent: 0.011770244821092278
+First turn, first round: best 18800  middle 12845  worst 9091
+legal moves 2795764  illegal moves  113216
+truco pe    11414  not truco pe   2722213
+win 1 turn  0  not win 1 turn 90984
+truco acc   33984  truco give up  4
+
+
+Episode 200000 	 avg length: 3 	 reward p0: 0 	 give up percent: 0.011393414606357526
+First turn, first round: best 18525  middle 12594  worst 8846
+legal moves 3172313  illegal moves  120019
+truco pe    13399  not truco pe   3085363
+win 1 turn  0  not win 1 turn 104149
+truco acc   35108  truco give up  4
+
+
+Episode 225000 	 avg length: 3 	 reward p0: 0 	 give up percent: 0.00860264387921888
+First turn, first round: best 18085  middle 12972  worst 9540
+legal moves 3555256  illegal moves  125327
+truco pe    12354  not truco pe   3455952
+win 1 turn  0  not win 1 turn 117583
+truco acc   34873  truco give up  3
+
+
+Episode 250000 	 avg length: 3 	 reward p0: 0 	 give up percent: 0.0
+First turn, first round: best 17236  middle 13170  worst 9193
+legal moves 3931891  illegal moves  130106
+truco pe    14096  not truco pe   3818491
+win 1 turn  0  not win 1 turn 131011
+truco acc   35761  truco give up  0
+
+
+Episode 275000 	 avg length: 4 	 reward p0: 0 	 give up percent: 0.0
+First turn, first round: best 18528  middle 14080  worst 9958
+legal moves 4337077  illegal moves  134951
+truco pe    13487  not truco pe   4210190
+win 1 turn  0  not win 1 turn 144374
+truco acc   34505  truco give up  0
+
+
+Episode 300000 	 avg length: 3 	 reward p0: 0 	 give up percent: 0.016800604821773583
+First turn, first round: best 17004  middle 13350  worst 9425
+legal moves 4714603  illegal moves  140278
+truco pe    14072  not truco pe   4573644
+win 1 turn  0  not win 1 turn 157852
+truco acc   35713  truco give up  6
+
+
+Episode 325000 	 avg length: 3 	 reward p0: 0 	 give up percent: 0.005504486156217317
+First turn, first round: best 17456  middle 13437  worst 9132
+legal moves 5098548  illegal moves  145479
+truco pe    14552  not truco pe   4943037
+win 1 turn  0  not win 1 turn 171330
+truco acc   36334  truco give up  2
+
+
+Episode 350000 	 avg length: 4 	 reward p0: 0 	 give up percent: 0.011180992313067784
+First turn, first round: best 17716  middle 14650  worst 10599
+legal moves 5507344  illegal moves  149705
+truco pe    17878  not truco pe   5333955
+win 1 turn  0  not win 1 turn 184795
+truco acc   35775  truco give up  4
+
+
+Episode 375000 	 avg length: 4 	 reward p0: 0 	 give up percent: 0.01150847311332969
+First turn, first round: best 17654  middle 14607  worst 9749
+legal moves 5909230  illegal moves  154080
+truco pe    13663  not truco pe   5722178
+win 1 turn  0  not win 1 turn 198427
+truco acc   34757  truco give up  4
+
+
+Episode 400000 	 avg length: 3 	 reward p0: 0 	 give up percent: 0.01164551065564225
+First turn, first round: best 17463  middle 13969  worst 9125
+legal moves 6298258  illegal moves  158643
+truco pe    11342  not truco pe   6099864
+win 1 turn  0  not win 1 turn 212406
+truco acc   34348  truco give up  4
+
+
+Episode 425000 	 avg length: 3 	 reward p0: 0 	 give up percent: 0.020023456048513973
+First turn, first round: best 17665  middle 13870  worst 8562
+legal moves 6684007  illegal moves  163076
+truco pe    11220  not truco pe   6474393
+win 1 turn  0  not win 1 turn 226129
+truco acc   34959  truco give up  7
+
+
+Episode 450000 	 avg length: 3 	 reward p0: 0 	 give up percent: 0.02346385100454612
+First turn, first round: best 15742  middle 14015  worst 10281
+legal moves 7068467  illegal moves  166773
+truco pe    11303  not truco pe   6847550
+win 1 turn  0  not win 1 turn 239884
+truco acc   34095  truco give up  8
+
+
+Episode 475000 	 avg length: 3 	 reward p0: 0 	 give up percent: 0.02331477865532014
+First turn, first round: best 14179  middle 14041  worst 10860
+legal moves 7444911  illegal moves  170936
+truco pe    12842  not truco pe   7211152
+win 1 turn  0  not win 1 turn 253604
+truco acc   34313  truco give up  8
+
+
+Episode 500000 	 avg length: 4 	 reward p0: 0 	 give up percent: 0.008881257586074187
+First turn, first round: best 15222  middle 14743  worst 10645
+legal moves 7834073  illegal moves  174408
+truco pe    11141  not truco pe   7589173
+win 1 turn  0  not win 1 turn 267301
+truco acc   33779  truco give up  3
+
+

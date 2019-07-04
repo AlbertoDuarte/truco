@@ -293,6 +293,7 @@ def main():
         if i_episode % update == 0:
             for i in range(0, 1):
                 models[i].update(memory[i])
+            for i in range(0, 4):
                 memory[i].clear_memory()
         avg_length += t
         
