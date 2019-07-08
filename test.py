@@ -44,7 +44,9 @@ def playCard():
                 elif key == "q":
                     return 5
 
-#name = input("file name: ")
+name1 = input("first AI file name: ")
+name2 = input("second AI file name: ")
+
 ############## Hyperparameters ##############
 env_name = "compare"
 # creating environment
@@ -64,10 +66,10 @@ eps_clip = 0.2              # clip parameter for PPO
 
 memory = Memory()
 agent4 = PPO(state_dim, action_dim, n_latent_var, lr, betas, gamma, K_epochs, eps_clip)
-agent4.policy_old.load_state_dict(torch.load("PPO-v3-4agents/PPO_Truco-v3_EP500000.pth", map_location="cpu")) # Change
+agent4.policy_old.load_state_dict(torch.load(name1, map_location="cpu")) # Change
 
 agent1 = PPO(state_dim, action_dim, n_latent_var, lr, betas, gamma, K_epochs, eps_clip)
-agent1.policy_old.load_state_dict(torch.load("PPO-v3-1agent/PPO_Truco-vE0_EP500000.pth", map_location="cpu")) # Change
+agent1.policy_old.load_state_dict(torch.load(name2, map_location="cpu")) # Change
 
 episode_done = False
 

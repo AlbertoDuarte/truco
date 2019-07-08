@@ -46,7 +46,6 @@ def playCard():
 
 name = input("file name: ")
 ############## Hyperparameters ##############
-env_name = name
 # creating environment
 seed = random.randint(1, 1000000000)
 env = truco.setupGame(show_all=True, SEED=seed)
@@ -64,7 +63,7 @@ eps_clip = 0.2              # clip parameter for PPO
 
 memory = Memory()
 ppo = PPO(state_dim, action_dim, n_latent_var, lr, betas, gamma, K_epochs, eps_clip)
-ppo.policy_old.load_state_dict(torch.load("PPO_Truco-v0.pth")) # Change
+ppo.policy_old.load_state_dict(torch.load(name), map_location="cpu") # Change
 episode_done = False
 
 state = env.reset()
